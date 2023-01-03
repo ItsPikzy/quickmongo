@@ -345,8 +345,7 @@ var Database = class extends import_tiny_typed_emitter.TypedEmitter {
   all(options) {
     return __async(this, null, function* () {
       this.__readyCheck();
-      const expiretAt = !(this.expireAt && this.expireAt.getTime() - Date.now() <= 0);
-      const everything = yield this.model.find({expireAt})
+      const everything = yield this.model.find()
       let arb = everything.filter((v) => {
         var _a, _b;
         return (_b = (_a = options == null ? void 0 : options.filter) == null ? void 0 : _a.call(options, { ID: v.ID, data: v.data })) != null ? _b : true;
